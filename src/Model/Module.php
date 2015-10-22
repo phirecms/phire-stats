@@ -58,23 +58,23 @@ class Module extends AbstractModel
 
     public function getAverages($count)
     {
-        $this->php = [
+        $this->data['php'] = [
             '5.4'   => 0,
             '5.5'   => 0,
             '5.6'   => 0,
             'other' => 0
         ];
-        $this->db = [
+        $this->data['db'] = [
             'mysql'  => 0,
             'pgsql'  => 0,
             'sqlite' => 0
         ];
-        $this->server = [
+        $this->data['server'] = [
             'apache' => 0,
             'iis'    => 0,
             'other'  => 0
         ];
-        $this->os = [
+        $this->data['os'] = [
             'linux'   => 0,
             'unix'    => 0,
             'windows' => 0,
@@ -94,23 +94,23 @@ class Module extends AbstractModel
             $unix    = Table\Modules::findBy(['os' => '%unix%'])->count();
             $windows = Table\Modules::findBy(['os' => '%windows%'])->count();
 
-            $this->php['5.4']   = round((($php54 / $count) * 100), 2);
-            $this->php['5.5']   = round((($php55 / $count) * 100), 2);
-            $this->php['5.6']   = round((($php56 / $count) * 100), 2);
-            $this->php['other'] = round(100 - $this->php['5.4'] - $this->php['5.5'] - $this->php['5.6']);
+            $this->data['php']['5.4']   = round((($php54 / $count) * 100), 2);
+            $this->data['php']['5.5']   = round((($php55 / $count) * 100), 2);
+            $this->data['php']['5.6']   = round((($php56 / $count) * 100), 2);
+            $this->data['php']['other'] = round(100 - $this->data['php']['5.4'] - $this->data['php']['5.5'] - $this->data['php']['5.6']);
 
-            $this->db['mysql']  = round((($mysql / $count) * 100), 2);
-            $this->db['pgsql']  = round((($pgsql / $count) * 100), 2);
-            $this->db['sqlite'] = round((($sqlite / $count) * 100), 2);
+            $this->data['db']['mysql']  = round((($mysql / $count) * 100), 2);
+            $this->data['db']['pgsql']  = round((($pgsql / $count) * 100), 2);
+            $this->data['db']['sqlite'] = round((($sqlite / $count) * 100), 2);
 
-            $this->server['apache'] = round((($apache / $count) * 100), 2);
-            $this->server['iis']    = round((($iis / $count) * 100), 2);
-            $this->server['other']  = round(100 - $this->server['apache'] - $this->server['iis']);
+            $this->data['server']['apache'] = round((($apache / $count) * 100), 2);
+            $this->data['server']['iis']    = round((($iis / $count) * 100), 2);
+            $this->data['server']['other']  = round(100 - $this->data['server']['apache'] - $this->data['server']['iis']);
 
-            $this->os['linux']   = round((($linux / $count) * 100), 2);
-            $this->os['unix']    = round((($unix / $count) * 100), 2);
-            $this->os['windows'] = round((($windows / $count) * 100), 2);
-            $this->os['other']   = round(100 - $this->os['linux'] - $this->os['unix'] - $this->os['windows']);
+            $this->data['os']['linux']   = round((($linux / $count) * 100), 2);
+            $this->data['os']['unix']    = round((($unix / $count) * 100), 2);
+            $this->data['os']['windows'] = round((($windows / $count) * 100), 2);
+            $this->data['os']['other']   = round(100 - $this->data['os']['linux'] - $this->data['os']['unix'] - $this->data['os']['windows']);
         }
     }
 
