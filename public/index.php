@@ -9,7 +9,7 @@ $pop->get('/', [
     'action'     => 'index'
 ]);
 
-$pop->get('/login', [
+$pop->addRoutes('get,post', '/login', [
     'controller' => 'Phire\Stats\Controller\IndexController',
     'action'     => 'login'
 ]);

@@ -2,6 +2,7 @@
 
 namespace Phire\Stats\Controller;
 
+use Phire\Stats\Form;
 use Pop\Controller\AbstractController;
 use Pop\Http\Request;
 use Pop\Http\Response;
@@ -63,8 +64,25 @@ class IndexController extends AbstractController
 
     public function login()
     {
+        if (isset($this->sess->user)) {
+            $this->redirect('/');
+        }
+
         $this->prepareView('login.phtml');
         $this->view->title = 'Login';
+        $this->view->form  = new Form\Login();
+
+        if ($this->request->isPost()) {
+            $this->view->form->addFilter('strip_tags')
+                 ->addFilter('htmlentities', [ENT_QUOTES, 'UTF-8'])
+                 ->setFieldValues($this->request->getPost());
+
+            if ($this->view->form->isValid()) {
+                $this->sess->user = true;
+                $this->redirect('/');
+            }
+        }
+
         $this->send();
     }
 
