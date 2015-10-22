@@ -83,6 +83,21 @@ abstract class AbstractModel implements \ArrayAccess
     }
 
     /**
+     * Method to filter data
+     *
+     * @param  array $data
+     * @return array
+     */
+    public function filter($data)
+    {
+        foreach ($data as $key => $value) {
+            $data[$key] = strip_tags($value);
+        }
+
+        return $data;
+    }
+
+    /**
      * Magic get method to return the value of data[$name].
      *
      * @param  string $name

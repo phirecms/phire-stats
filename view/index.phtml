@@ -3,7 +3,49 @@
 <!-- Content //-->
     <h1><?=$title; ?></h1>
 <?php if (isset($stats) && (count($stats) > 0)): ?>
-    <p>There are stats!</p>
+<?php if (isset($pages) && (null !== $pages)): ?>
+<?=$pages; ?>
+<?php endif; ?>
+<?php
+if (isset($_GET['modules'])):
+    $resource = '&modules=1';
+elseif (isset($_GET['themes'])):
+    $resource = '&themes=1';
+else:
+    $resource = null;
+endif; ?>
+    <table class="data-table" cellpadding="0" cellspacing="0">
+        <tr>
+            <th><a href="/?sort=id<?=$resource; ?>">#</a></th>
+<?php if (isset($_GET['modules']) || isset($_GET['themes'])): ?>
+            <th><a href="/?sort=name<?=$resource; ?>">Name</a></th>
+<?php endif; ?>
+            <th><a href="/?sort=version<?=$resource; ?>">Version</a></th>
+            <th><a href="/?sort=domain<?=$resource; ?>">Domain</a></th>
+            <th><a href="/?sort=ip<?=$resource; ?>">IP</a></th>
+            <th><a href="/?sort=os<?=$resource; ?>">OS</a></th>
+            <th><a href="/?sort=server<?=$resource; ?>">Server</a></th>
+            <th><a href="/?sort=php<?=$resource; ?>">PHP</a></th>
+            <th><a href="/?sort=db<?=$resource; ?>">DB</a></th>
+            <th><a href="/?sort=installed<?=$resource; ?>">Installed</a></th>
+        </tr>
+<?php foreach ($stats as $stat): ?>
+        <tr>
+            <td>#</td>
+<?php if (isset($_GET['modules']) || isset($_GET['themes'])): ?>
+            <td><?=$stat->name; ?></td>
+<?php endif; ?>
+            <td><?=$stat->version; ?></td>
+            <td><?=$stat->domain; ?></td>
+            <td><?=$stat->ip; ?></td>
+            <td><?=$stat->os; ?></td>
+            <td><?=$stat->server; ?></td>
+            <td><?=$stat->php; ?></td>
+            <td><?=$stat->db; ?></td>
+            <td><?=date('M j Y H:i:s', strtotime($stat->installed)); ?></td>
+        </tr>
+<?php endforeach; ?>
+    </table>
 <?php else: ?>
     <p>There are currently no stats.</p>
 <?php endif; ?>

@@ -125,17 +125,32 @@ class IndexController extends AbstractController
 
     public function system()
     {
-        echo 'System!';
+        if ($this->isValidRequest()) {
+            $system = new Model\System();
+            $system->save($this->request->getPost());
+        } else {
+            $this->error();
+        }
     }
 
     public function module()
     {
-        echo 'Module!';
+        if ($this->isValidRequest()) {
+            $module = new Model\Module();
+            $module->save($this->request->getPost());
+        } else {
+            $this->error();
+        }
     }
 
     public function theme()
     {
-        echo 'Theme!';
+        if ($this->isValidRequest()) {
+            $theme = new Model\Theme();
+            $theme->save($this->request->getPost());
+        } else {
+            $this->error();
+        }
     }
 
     public function error()
@@ -173,6 +188,26 @@ class IndexController extends AbstractController
     protected function prepareView($template)
     {
         $this->view = new View($this->viewPath . $template);
+    }
+
+    private function isValidRequest()
+    {
+        $result = false;
+
+        if ((null !== $this->request->getHeader('Authorization')) &&
+            (null !== $this->request->getHeader('User-Agent'))) {
+            $token = base64_decode($this->request->getHeader('Authorization'));
+            $ua    = $this->request->getHeader('User-Agent');
+            if (stripos($ua, 'curl') === false) {
+                if (substr($token, 0, 12) == 'phire-stats-') {
+                    if (is_numeric(substr($token, 13))) {
+                        $result = true;
+                    }
+                }
+            }
+        }
+
+        return $result;
     }
 
 }
