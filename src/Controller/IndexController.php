@@ -3,11 +3,13 @@
 namespace Phire\Stats\Controller;
 
 use Phire\Stats\Form;
+use Phire\Stats\Model;
 use Pop\Controller\AbstractController;
 use Pop\Http\Request;
 use Pop\Http\Response;
-use Pop\Web\Session;
+use Pop\Paginator\Paginator;
 use Pop\View\View;
+use Pop\Web\Session;
 
 class IndexController extends AbstractController
 {
@@ -43,6 +45,12 @@ class IndexController extends AbstractController
     protected $view = null;
 
     /**
+     * Pagination limit
+     * @var int
+     */
+    protected $pagination = 25;
+
+    /**
      * Constructor for the controller
      *
      * @return IndexController
@@ -57,8 +65,37 @@ class IndexController extends AbstractController
 
     public function index()
     {
+        if (!isset($this->sess->user)) {
+            $this->redirect('/login');
+        }
+
         $this->prepareView('index.phtml');
-        $this->view->title = 'Index';
+
+        if (null !== $this->request->getQuery('modules')) {
+            $model = new Model\Module();
+            $this->view->title = 'Module Stats';
+        } else if (null !== $this->request->getQuery('themes')) {
+            $model = new Model\Theme();
+            $this->view->title = 'Theme Stats';
+        } else {
+            $model = new Model\System();
+            $this->view->title = 'System Stats';
+        }
+
+        if ($model->hasPages($this->pagination)) {
+            $limit = $this->pagination;
+            $pages = new Paginator($model->getCount(), $limit);
+            $pages->useInput(true);
+        } else {
+            $limit = null;
+            $pages = null;
+        }
+
+        $this->view->pages = $pages;
+        $this->view->stats = $model->getAll(
+            $limit, $this->request->getQuery('page'), $this->request->getQuery('sort')
+        );
+
         $this->send();
     }
 

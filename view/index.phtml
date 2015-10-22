@@ -1,4 +1,10 @@
 <?php include __DIR__ . '/inc/header.phtml'; ?>
+<?php include __DIR__ . '/inc/nav.phtml'; ?>
 <!-- Content //-->
     <h1><?=$title; ?></h1>
+<?php if (isset($stats) && (count($stats) > 0)): ?>
+    <p>There are stats!</p>
+<?php else: ?>
+    <p>There are currently no stats.</p>
+<?php endif; ?>
 <?php include __DIR__ . '/inc/footer.phtml'; ?>

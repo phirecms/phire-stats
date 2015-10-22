@@ -1,0 +1,9 @@
+    <nav id="main-nav">
+        <a href="/">System</a>
+        <a href="/?modules=1">Modules</a>
+        <a href="/?themes=1">Themes</a>
+        <a href="/logout">Logout</a>
+    </nav>
+<?php if (isset($pages) && (null !== $pages)): ?>
+<?=$pages; ?>
+<?php endif; ?>
