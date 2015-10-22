@@ -31,7 +31,7 @@ endif; ?>
         </tr>
 <?php foreach ($stats as $stat): ?>
         <tr>
-            <td>#</td>
+            <td><?=$stat->id; ?></td>
 <?php if (isset($_GET['modules']) || isset($_GET['themes'])): ?>
             <td><?=$stat->name; ?></td>
 <?php endif; ?>
