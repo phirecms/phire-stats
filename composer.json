@@ -11,7 +11,8 @@
     "require": {
         "php": ">=5.4.0",
         "popphp/popcorn": "2.0.*",
-        "popphp/pop-db": "2.0.*"
+        "popphp/pop-db": "2.0.*",
+        "popphp/pop-form": "2.0.*"
     },
     "autoload": {
         "psr-4": {
