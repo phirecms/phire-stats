@@ -5,27 +5,37 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $pop = new Popcorn\Pop();
 
 $pop->get('/', [
-    'controller' => 'Phire\Updater\Controller\IndexController',
+    'controller' => 'Phire\Stats\Controller\IndexController',
     'action'     => 'index'
 ]);
 
-$pop->get('/latest/:resource', [
-    'controller' => 'Phire\Updater\Controller\IndexController',
-    'action'     => 'latest'
+$pop->get('/login', [
+    'controller' => 'Phire\Stats\Controller\IndexController',
+    'action'     => 'login'
 ]);
 
-$pop->post('/fetch/:resource', [
-    'controller' => 'Phire\Updater\Controller\IndexController',
-    'action'     => 'fetch'
+$pop->get('/logout', [
+    'controller' => 'Phire\Stats\Controller\IndexController',
+    'action'     => 'logout'
 ]);
 
-$pop->post('/test', [
-    'controller' => 'Phire\Updater\Controller\IndexController',
-    'action'     => 'test'
+$pop->post('/system', [
+    'controller' => 'Phire\Stats\Controller\IndexController',
+    'action'     => 'system'
+]);
+
+$pop->post('/module', [
+    'controller' => 'Phire\Stats\Controller\IndexController',
+    'action'     => 'module'
+]);
+
+$pop->post('/theme', [
+    'controller' => 'Phire\Stats\Controller\IndexController',
+    'action'     => 'theme'
 ]);
 
 $pop->get('*', [
-    'controller' => 'Phire\Updater\Controller\IndexController',
+    'controller' => 'Phire\Stats\Controller\IndexController',
     'action'     => 'error'
 ]);
 
