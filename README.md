@@ -1,2 +1,5 @@
-# phire-stats
 Phire Statistics Application
+============================
+
+Phire Statistics Application
+
