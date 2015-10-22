@@ -73,13 +73,13 @@ class IndexController extends AbstractController
 
         if (null !== $this->request->getQuery('modules')) {
             $model = new Model\Module();
-            $this->view->title = 'Module Stats';
+            $this->view->title = 'Modules';
         } else if (null !== $this->request->getQuery('themes')) {
             $model = new Model\Theme();
-            $this->view->title = 'Theme Stats';
+            $this->view->title = 'Themes';
         } else {
             $model = new Model\System();
-            $this->view->title = 'System Stats';
+            $this->view->title = 'System';
         }
 
         if ($model->hasPages($this->pagination)) {
@@ -95,6 +95,11 @@ class IndexController extends AbstractController
         $this->view->stats = $model->getAll(
             $limit, $this->request->getQuery('page'), $this->request->getQuery('sort')
         );
+
+        $this->view->php    = $model->php;
+        $this->view->db     = $model->db;
+        $this->view->server = $model->server;
+        $this->view->os     = $model->os;
 
         $this->send();
     }

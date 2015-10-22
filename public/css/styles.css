@@ -1,0 +1,336 @@
+/**
+ *
+ * Style Sheet Name: styles.css
+ * Style Sheet Version: 1.0
+ * Style Sheet Info: Main Style Sheet
+ *
+ */
+
+/* Global Definitions */
+
+html {
+    margin: 0;
+    padding: 0;
+    font-family: "Source Sans Pro", arial, helvetica, verdana, sans-serif;
+    font-size: 0.9em;
+    color: #727170;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #0493dd;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #ff681f;
+}
+
+img {
+    border: none;
+}
+
+h1 {
+    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
+    font-weight: normal;
+    font-size: 2.4em;
+}
+
+h2 {
+    margin: 0 0 8px 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 2.0em;
+}
+
+h3 {
+    margin: 0 0 6px 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 1.6em;
+}
+
+p {
+    margin: 0 0 15px 0;
+    padding: 0;
+    line-height: 1.5em;
+}
+
+dl {
+    margin: 0;
+    padding: 0
+    overflow: auto;
+}
+
+dt {
+    margin: 0;
+    padding: 0 0 2px 0;
+}
+
+dd {
+    margin: 0;
+    padding: 0 0 8px 0;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+input[type=text], input[type=email], input[type=password] {
+    margin: 0;
+    padding: 6px;
+    font-family: "Source Sans Pro", sans-serif;
+    border-radius: 6px;
+    font-size: 1.0em;
+    border: solid 1px #c9c9c9;
+    background-color: #d3d3d3;
+}
+
+input[type=file] {
+    margin: 0;
+    padding: 3px;
+    font-family: "Source Sans Pro", sans-serif;
+    border-radius: 6px;
+    font-size: 0.9em;
+    border: solid 1px #c9c9c9;
+    background-color: #d3d3d3;
+}
+
+select {
+    margin: 0;
+    padding: 2px;
+    font-family: "Source Sans Pro", sans-serif;
+    border: solid 1px #c9c9c9;
+    background-color: #d3d3d3;
+    border-radius: 4px;
+}
+
+option {
+    padding: 2px;
+}
+
+textarea {
+    margin: 0 0 10px 0;
+    padding: 3px;
+    background-color: #d3d3d3;
+    border: solid 1px #c9c9c9;
+    border-radius: 4px;
+    font-size: 0.825em;
+    font-family: "Courier New", "Courier10 BT", courier, serif;
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, input[type=file]:focus, select:focus, textarea:focus {
+    border: solid 1px #52b2e5;
+    background-color: #efefef;
+    box-shadow: 0 0 4px 1px #8cd6ff;
+}
+
+input[type=submit]:focus, button:focus {
+    outline: none;
+}
+
+/* ID Definitions */
+
+#content {
+    margin: 0 auto;
+    padding: 0;
+    width: 96%;
+}
+
+#main-nav {
+    margin: 0;
+    padding: 0;
+}
+
+#main-nav > a {
+    margin: 0;
+    padding: 4px 20px 5px 20px;
+    color: #ccc;
+    display: inline-block;
+    font-size: 0.9em;
+    background-color: #333;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#main-nav > a:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+/* Class Definitions */
+
+.save-btn {
+    margin: 0;
+    padding: 6px 12px 6px 12px;
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    font-weight: normal;
+    font-size: 0.9em;
+    background-color: #4aa1ce;
+    border-radius: 5px;
+    border: none;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+}
+
+.save-btn:hover {
+    cursor: pointer;
+    background-color: #30b6f9;
+}
+
+.data-table, .data-table-alt {
+    clear: both;
+    margin: 10px auto 10px auto;
+    padding: 0;
+    width: 100%;
+    border-left: solid 1px #ccc;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+}
+
+.data-table tr, .data-table-alt tr {
+    margin: 0;
+    padding: 0;
+}
+
+.data-table tr:hover, .data-table-alt tr:hover {
+    background-color: #e8f4f7;
+}
+
+.data-table th, .data-table-alt th {
+    margin: 0;
+    text-align: left;
+    padding: 8px 5px 8px 5px;
+    font-size: 0.9em;
+    border-top: solid 1px #ccc;
+    background-color: #ddd;
+}
+
+.data-table td, .data-table-alt td {
+    margin: 0;
+    padding: 8px 5px 8px 5px;
+    border-top: solid 1px #ccc;
+    font-size: 0.9em;
+}
+
+.data-table tr:nth-child(odd) {
+    background-color: #e5e5e5;
+}
+
+.data-table tr:nth-child(odd):hover {
+    background-color: #e8f4f7;
+}
+
+.data-table tr.no-background, .data-table td.no-background, .data-table th.no-background,
+.data-table tr.no-background:hover, .data-table td.no-background:hover, .data-table th.no-background:hover,
+.data-table-alt tr.no-background, .data-table-alt td.no-background,
+.data-table-alt tr.no-background:hover, .data-table-alt td.no-background:hover {
+    background: transparent;
+}
+
+.data-table tr.no-padding, .data-table td.no-padding, .data-table th.no-padding,
+.data-table-alt tr.no-padding, .data-table-alt td.no-padding {
+    padding: 0;
+}
+
+th.text-center, td.text-center {
+    text-align: center;
+}
+
+table.width-50-10 {
+    width: calc(50% - 10px);
+}
+
+table.width-50 {
+    width: 50%;
+}
+
+table.margin-10 {
+    margin-right: 10px;
+}
+
+table.left {
+    clear: none;
+    float: left;
+}
+
+.border-right {
+    border-right: solid 1px #ccc;
+}
+
+.required {
+    color: #4aa1ce;
+    font-weight: bold;
+}
+
+.error {
+    color: #f00;
+    font-weight: bold;
+}
+
+.page-links {
+    float: right;
+    margin: -45px 0 5px 0;
+    padding: 0;
+}
+
+.page-links > form {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+.page-links > form > div {
+    margin: 0 4px 0 0;
+    padding: 0;
+    display: inline;
+}
+
+.page-links > form > div > input {
+    margin: 0 0 0 4px;
+    padding: 1px;
+    width: 20px;
+    height: 17px;
+    color: #666;
+    text-align: center;
+    font-size: 0.9em;
+    background-color: #fff;
+    border: solid 1px #aaa;
+    border-radius: 4px;
+}
+
+.page-links > a {
+    margin: 0 3px 0 3px;
+    padding: 0 5px 6px 5px;
+    width: 10px;
+    height: 17px;
+    display: inline-block;
+    font-size: 1.1em;
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    background-color: #ddd;
+    border-radius: 4px;
+}
+
+.page-links > a:hover {
+    color: #fff;
+    background-color: #bbb;
+    text-decoration: none;
+}
+
+.header-top-border {
+    margin: 40px 0 0 0;
+    padding: 15px 0 15px 0;
+    border-top: solid 1px #ccc;
+}

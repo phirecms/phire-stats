@@ -19,7 +19,8 @@ class Login extends Form
                 'required'   => 'true',
                 'validators' => new Validator\NotEmpty(),
                 'attributes' => [
-                    'placeholder' => 'Username'
+                    'placeholder' => 'Username',
+                    'size'        => 40
                 ]
             ],
             'password' => [
@@ -27,12 +28,16 @@ class Login extends Form
                 'required'   => 'true',
                 'validators' => new Validator\NotEmpty(),
                 'attributes' => [
-                    'placeholder' => 'Password'
+                    'placeholder' => 'Password',
+                    'size'        => 40
                 ]
             ],
             'submit' => [
                 'type'  => 'submit',
-                'value' => 'Login'
+                'value' => 'Login',
+                'attributes' => [
+                    'class' => 'save-btn'
+                ]
             ]
         ];
 

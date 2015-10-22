@@ -1,10 +1,11 @@
 <?php include __DIR__ . '/inc/header.phtml'; ?>
 <?php include __DIR__ . '/inc/nav.phtml'; ?>
 <!-- Content //-->
-    <h1><?=$title; ?></h1>
+    <a style="float: right;" href="#averages">Averages</a>
+    <h1 class="header-top-border">Phire Stats : <?=$title; ?></h1>
 <?php if (isset($stats) && (count($stats) > 0)): ?>
 <?php if (isset($pages) && (null !== $pages)): ?>
-<?=$pages; ?>
+    <div class="page-links"><?=$pages; ?></div>
 <?php endif; ?>
 <?php
 if (isset($_GET['modules'])):
@@ -45,6 +46,73 @@ endif; ?>
             <td><?=date('M j Y H:i:s', strtotime($stat->installed)); ?></td>
         </tr>
 <?php endforeach; ?>
+    </table>
+    <a name="averages"></a>
+    <a style="float: right;" href="#top">Top</a>
+    <h1 class="header-top-border">Installation Averages:</h1>
+    <table class="data-table width-50-10 left margin-10" cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="4" class="text-center">PHP</th>
+        </tr>
+        <tr class="no-background">
+            <th class="no-background border-right"><strong>5.4:</strong></th>
+            <th class="no-background border-right"><strong>5.5:</strong></th>
+            <th class="no-background border-right"><strong>5.6:</strong></th>
+            <th class="no-background"><strong>Other:</strong></th>
+        </tr>
+        <tr class="no-background">
+            <td class="no-background border-right"><?=$php['5.4']; ?>%</td>
+            <td class="no-background border-right"><?=$php['5.5']; ?>%</td>
+            <td class="no-background border-right"><?=$php['5.6']; ?>%</td>
+            <td class="no-background"><?=$php['other']; ?>%</td>
+        </tr>
+    </table>
+    <table class="data-table width-50 left" cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="3" class="text-center">DB</th>
+        </tr>
+        <tr class="no-background">
+            <th class="no-background border-right"><strong>MySQL</strong></th>
+            <th class="no-background border-right"><strong>PgSQL</strong></th>
+            <th class="no-background"><strong>SQLite</strong></th>
+        </tr>
+        <tr class="no-background">
+            <td class="no-background border-right"><?=$db['mysql']; ?>%</td>
+            <td class="no-background border-right"><?=$db['pgsql']; ?>%</td>
+            <td class="no-background"><?=$db['sqlite']; ?>%</td>
+        </tr>
+    </table>
+    <table class="data-table width-50-10 left margin-10" cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="3" class="text-center">Server</th>
+        </tr>
+        <tr class="no-background">
+            <th class="no-background border-right"><strong>Apache</strong></th>
+            <th class="no-background border-right"><strong>IIS</strong></th>
+            <th class="no-background"><strong>Other</strong></th>
+        </tr>
+        <tr class="no-background">
+            <td class="no-background border-right"><?=$server['apache']; ?>%</td>
+            <td class="no-background border-right"><?=$server['iis']; ?>%</td>
+            <td class="no-background"><?=$server['other']; ?>%</td>
+        </tr>
+    </table>
+    <table class="data-table width-50 left" cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="4" class="text-center">OS</th>
+        </tr>
+        <tr class="no-background">
+            <th class="no-background border-right"><strong>Linux</strong></th>
+            <th class="no-background border-right"><strong>Unix</strong></th>
+            <th class="no-background border-right"><strong>Windows</strong></th>
+            <th class="no-background"><strong>Other</strong></th>
+        </tr>
+        <tr class="no-background">
+            <td class="no-background border-right"><?=$os['linux']; ?>%</td>
+            <td class="no-background border-right"><?=$os['unix']; ?>%</td>
+            <td class="no-background border-right"><?=$os['windows']; ?>%</td>
+            <td class="no-background"><?=$os['other']; ?>%</td>
+        </tr>
     </table>
 <?php else: ?>
     <p>There are currently no stats.</p>
