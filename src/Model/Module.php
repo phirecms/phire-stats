@@ -92,7 +92,7 @@ class Module extends AbstractModel
             $iis     = Table\Modules::findBy(['server' => '%iis%'])->count();
             $linux   = Table\Modules::findBy(['os' => '%linux%'])->count();
             $unix    = Table\Modules::findBy(['os' => '%unix%'])->count();
-            $windows = Table\Modules::findBy(['os' => '%windows%'])->count();
+            $windows = Table\Modules::findBy(['os' => '%win%'])->count();
 
             $this->data['php']['5.4']   = round((($php54 / $count) * 100), 2);
             $this->data['php']['5.5']   = round((($php55 / $count) * 100), 2);

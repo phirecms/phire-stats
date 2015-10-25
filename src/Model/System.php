@@ -91,7 +91,7 @@ class System extends AbstractModel
             $iis     = Table\System::findBy(['server' => '%iis%'])->count();
             $linux   = Table\System::findBy(['os' => '%linux%'])->count();
             $unix    = Table\System::findBy(['os' => '%unix%'])->count();
-            $windows = Table\System::findBy(['os' => '%windows%'])->count();
+            $windows = Table\System::findBy(['os' => '%win%'])->count();
 
             $this->data['php']['5.4']   = round((($php54 / $count) * 100), 2);
             $this->data['php']['5.5']   = round((($php55 / $count) * 100), 2);

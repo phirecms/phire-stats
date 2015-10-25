@@ -92,7 +92,7 @@ class Theme extends AbstractModel
             $iis     = Table\Themes::findBy(['server' => '%iis%'])->count();
             $linux   = Table\Themes::findBy(['os' => '%linux%'])->count();
             $unix    = Table\Themes::findBy(['os' => '%unix%'])->count();
-            $windows = Table\Themes::findBy(['os' => '%windows%'])->count();
+            $windows = Table\Themes::findBy(['os' => '%win%'])->count();
 
             $this->data['php']['5.4']   = round((($php54 / $count) * 100), 2);
             $this->data['php']['5.5']   = round((($php55 / $count) * 100), 2);
