@@ -1,10 +1,31 @@
 <?php
+/**
+ * Phire Stats Application
+ *
+ * @link       https://github.com/phirecms/phire-stats
+ * @author     Nick Sagona, III <dev@nolainteractive.com>
+ * @copyright  Copyright (c) 2009-2016 NOLA Interactive, LLC. (http://www.nolainteractive.com)
+ * @license    http://www.phirecms.org/license     New BSD License
+ */
 
+/**
+ * @namespace
+ */
 namespace Phire\Stats\Form;
 
 use Pop\Form\Form;
 use Pop\Validator;
 
+/**
+ * Stats Login Form class
+ *
+ * @category   Phire\Stats
+ * @package    Phire\Stats
+ * @author     Nick Sagona, III <dev@nolainteractive.com>
+ * @copyright  Copyright (c) 2009-2016 NOLA Interactive, LLC. (http://www.nolainteractive.com)
+ * @license    http://www.phirecms.org/license     New BSD License
+ * @version    1.0.0
+ */
 class Login extends Form
 {
 

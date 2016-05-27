@@ -1,9 +1,30 @@
 <?php
+/**
+ * Phire Stats Application
+ *
+ * @link       https://github.com/phirecms/phire-stats
+ * @author     Nick Sagona, III <dev@nolainteractive.com>
+ * @copyright  Copyright (c) 2009-2016 NOLA Interactive, LLC. (http://www.nolainteractive.com)
+ * @license    http://www.phirecms.org/license     New BSD License
+ */
 
+/**
+ * @namespace
+ */
 namespace Phire\Stats\Model;
 
 use Pop\Web\Session;
 
+/**
+ * Stats Abstract Model class
+ *
+ * @category   Phire\Stats
+ * @package    Phire\Stats
+ * @author     Nick Sagona, III <dev@nolainteractive.com>
+ * @copyright  Copyright (c) 2009-2016 NOLA Interactive, LLC. (http://www.nolainteractive.com)
+ * @license    http://www.phirecms.org/license     New BSD License
+ * @version    1.0.0
+ */
 abstract class AbstractModel implements \ArrayAccess
 {
 

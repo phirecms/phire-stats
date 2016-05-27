@@ -1,5 +1,16 @@
 <?php
+/**
+ * Phire Stats Application
+ *
+ * @link       https://github.com/phirecms/phire-stats
+ * @author     Nick Sagona, III <dev@nolainteractive.com>
+ * @copyright  Copyright (c) 2009-2016 NOLA Interactive, LLC. (http://www.nolainteractive.com)
+ * @license    http://www.phirecms.org/license     New BSD License
+ */
 
+/**
+ * @namespace
+ */
 namespace Phire\Stats\Controller;
 
 use Phire\Stats\Form;
@@ -11,6 +22,16 @@ use Pop\Paginator\Paginator;
 use Pop\View\View;
 use Pop\Web\Session;
 
+/**
+ * Stats Index Controller class
+ *
+ * @category   Phire\Stats
+ * @package    Phire\Stats
+ * @author     Nick Sagona, III <dev@nolainteractive.com>
+ * @copyright  Copyright (c) 2009-2016 NOLA Interactive, LLC. (http://www.nolainteractive.com)
+ * @license    http://www.phirecms.org/license     New BSD License
+ * @version    1.0.0
+ */
 class IndexController extends AbstractController
 {
 
